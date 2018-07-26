@@ -8,7 +8,7 @@ I've previously implemented this in my `pjava-autostereogram` project for an upc
 
 ## Progress
 
-Haven't gotten quite there yet, have to implement actual algorithm...
+coded algorithm, seems to be working? haven't tested thoroughly...
 
 ## Usage
 
