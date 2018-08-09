@@ -4,8 +4,11 @@
             [cljs-autostereogram.hidden :as h]
             [cljs-autostereogram.sgram :as a]))
 
-(def cur-dim {:w 1024 :h 768})
-(def scaling 4)
+(def base-dim {:w 1024 :h 768}) ;;use this as a base dimension
+(def want-width (.-innerWidth js/window)) ;; the actual width we want
+(def cur-dim (let [w (float (get base-dim :w)) h (float (get base-dim :h))]
+               {:w (int want-width) :h (int (* want-width (/ h w)))})) ;;rescale h accordingly
+(def scaling 4) ;;factor to shrink hidden (and expand sgram) by
 
 (defn setup []
   ; Set frame rate to 30 frames per second.
@@ -19,7 +22,7 @@
         w (get cur-dim :w)
         h (get cur-dim :h)]
     (swap! cur-state merge (h/setup-hidden w h scaling))
-    (swap! cur-state merge {:sgram (a/setup-sgram (get h/cur-dim :w) (get h/cur-dim :h))})
+    (swap! cur-state merge {:sgram (a/setup-sgram w h scaling)})
     )
   )
 
