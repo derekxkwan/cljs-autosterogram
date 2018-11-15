@@ -97,6 +97,7 @@
                     (swap! pix-val assoc x (get @pix-val (get @same-ptr x)))
                     )
                   ;;(println (map #(* % (get @pix-val x)) base-color))
+                  ;(aset in-pix (+ x (* j iw)) (apply q/color (map #(* % (get @pix-val x)) base-color)))
                   (q/set-pixel x j (apply q/color (map #(* % (get @pix-val x)) base-color)))
 
                   (when (> x 0)

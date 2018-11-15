@@ -28,16 +28,20 @@
   (q/background bg-color)
   (q/text-leading text-ld)
   (q/fill 255)
+   (q/text-align :center :center)
   (q/text-size (/ font-sz scaling))
+  (q/rect-mode :corner)
   (let [w (get cur-dim :w)
         h (get cur-dim :h)
-        cur-width (q/text-width my-str)
-        x1 (- (/ w 2.0) (/ cur-width 2.0))
-        x2 (+ (/ w 2.0) (/ cur-width 2.0))
-        actual-height (* (/ font-sz scaling) nstr)
-        y1 (- (/ h 2.0) (/ actual-height 2.0))
-        y2 (+ (/ h 2.0) (/ actual-height 2.0))]
-    (q/text my-str x1 y1 x2 y2))
+        ;cur-width (q/text-width my-str)
+        ;x1 (- (/ w 2.0) (/ cur-width 2.0))
+        ;x2 (+ (/ w 2.0) (/ cur-width 2.0))
+        ;actual-height (* (/ font-sz scaling) nstr)
+        ;y1 (- (/ h 2.0) (/ actual-height 2.0))
+        ;y2 (+ (/ h 2.0) (/ actual-height 2.0))]
+        ]
+    (q/text my-str (/ w 2) (/ h 2))
+    )
   )
          
   
